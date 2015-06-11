@@ -1,0 +1,19 @@
+<!doctype html>
+
+<form action="/new" method="POST">
+	<input type="text" name="Occasion"></input>
+	<input type="number" name="Invited Count"></input>
+	<input type="number" name="Year"></input>
+	<input type="number" name="Month"></input>
+	<input type="number" name="Day"></input>
+	<input type="submit"</input>
+</form>
+
+{% for item in items %}
+	<h1> {{ item.occasion }} </h1>
+	<p> {{ item.invited_count }} </p>
+	<p> {{ item.year }} </p>
+	<p> {{ item.month }} </p>
+	<p> {{ item.day }} </p>
+{% endfor %}	
+
