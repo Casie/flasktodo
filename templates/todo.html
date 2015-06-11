@@ -1,19 +1,76 @@
-<!doctype html>
+<html>
+	<head>
+		<script src="http://code.jquery.com/jquery-2.1.1.js"></script>
+		<link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
+		<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+	</head>
 
-<form action="/new" method="POST">
-	<input type="text" name="Occasion"></input>
-	<input type="number" name="Invited Count"></input>
-	<input type="number" name="Year"></input>
-	<input type="number" name="Month"></input>
-	<input type="number" name="Day"></input>
-	<input type="submit"</input>
-</form>
+	<body>
+		<style type = "text/css">
+		.centerdv
+		{
+			margin-top: 5%;
+			margin-left: auto;
+			margin-right: auto;
+			text-align: center;
+		}
+		.formcss
+		{
+			margin-top: 5%;
+			margin-left: auto;
+			margin-right: auto;
+			text-align: center;
+		}
+		</style>
 
-{% for item in items %}
-	<h1> {{ item.occasion }} </h1>
-	<p> {{ item.invited_count }} </p>
-	<p> {{ item.year }} </p>
-	<p> {{ item.month }} </p>
-	<p> {{ item.day }} </p>
-{% endfor %}	
+		<div class = "centerdv container">
+			<div class = "page-header">
+				<h2>Events</h2>
+			</div>
+			<div class = "panel panel-default">
+				<div class="form-group" style="background-color:lavender;" >
+				  <div class="row">
+    				<div class="col-lg-11" >
+    					<div class="col-lg-6" >
+								<form action="/new" method="POST">
+								<input type="text" name="occasion"></input>
+								<LABEL for="occasion">Occasion</LABEL><br>
+								<input type="number" name="invited_count"></input>
+								<LABEL for="invited_count">Invited Count</LABEL><br>
+								<input type="number" name="year"></input>
+								<LABEL for="year">Year</LABEL><br>
+								<input type="number" name="month"></input>
+								<LABEL for="month">Month</LABEL><br>
+								<input type="number" name="day"></input>
+								<LABEL for="day">Day</LABEL><br>
+								<input type="submit"</input><br>
+								</form>	
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>		
 
+			<div>
+				<table class = "table" style="background-color:lavenderblush;">
+					<thead>
+						<tr>
+							<th>Occasion</th>
+							<th>Invited Count</th>
+							<th>Date</th>
+						</tr>
+					</thead>	
+					<tbody>
+						{% for item in items %}
+						<tr>
+							<td>{{ item.occasion }}</td>
+							<td>{{ item.invited_count }} people invited</td>	
+							<td>{{ item.month }}/{{ item.day }}/{{ item.year }}</td>
+							{% endfor %}
+							</td>
+						</tr>	
+					</tbody>	
+				</table>			
+			</div>
+	</body>
+</html>			
